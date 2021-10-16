@@ -1,0 +1,23 @@
+/* .service{
+    background-color: rgba(255, 166, 0, 0.678);
+    color: white;
+} */
+img{
+    width: 250px;
+}
+/* @media only screen and(max-width: 650px) {
+    img{
+        max-width: 200px;
+    }
+    h3{
+        text-align: center;
+    }
+}
+@media only screen and(max-width: 1024px) {
+    img{
+        max-width: 200px;
+    }
+    h3{
+        text-align: center;
+    }
+} */
