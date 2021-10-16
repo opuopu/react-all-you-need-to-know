@@ -9,14 +9,18 @@ const Booking = () => {
     const[users,setuser] = useState([])
     const[cata,setcata] = useState([])
     const {id} = useParams()
-   
+
       useEffect(()=>{
           fetch('/user.JSON')
           .then(res =>res.json())
           .then(data => setuser(data))
       },[])
-
-
+    //   -------------------the best way to find user using useparams id---------------------
+      useEffect(()=>{
+        const catagorys = users.filter(cat=> cat.catagory==="breakfast")
+     setcata(catagorys)
+    },[users])
+// --------------------------------------------------------
   const service = services.find(single=> single.id === id)
 
 const{name,img} = service || {}
@@ -29,10 +33,7 @@ if(count < 385){
 
 
 }
-useEffect(()=>{
-    const catagorys = users.filter(cat=> cat.catagory==="breakfast")
- setcata(catagorys)
-},[users])
+
 
 
 
@@ -41,7 +42,13 @@ useEffect(()=>{
         <div>
           
             <div className="text-center">
-          <h3>name: {cata[0]?.name}</h3>
+          <h3>name: {cata.length}</h3>
+          {
+              cata.map(c=> <div>
+
+                  <h3>{c.name}</h3>
+              </div> )
+          }
           <h2>booking page  {id}</h2>
                 <p>{name}</p>
                 <img src={img} alt="" />
